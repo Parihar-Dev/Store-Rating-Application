@@ -4,7 +4,7 @@ const { createError } = require('../auth/error-handler');
 const validateUserRegistration = (name, email, password, address) => {
 
     if (!name || name.length < 20 || name.length > 60) {
-        throw createError(400, "Name must be between 3 and 60 characters.");
+        throw createError(400, "Name must be between 20 and 60 characters.");
     }
 
     if (address && address.length > 400) {
@@ -28,7 +28,7 @@ const validateUserRegistration = (name, email, password, address) => {
 
 const validateStoreCreation = (name, email, password, address) => {
     if (!name || name.length < 20 || name.length > 60) {
-        throw createError(400, "Store name must be between 3 and 60 characters.");
+        throw createError(400, "Store name must be between 20 and 60 characters.");
     }
 
     if (!address) {
