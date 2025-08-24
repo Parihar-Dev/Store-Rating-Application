@@ -53,6 +53,7 @@ Follow these steps to get a local copy of the project up and running.
 
 * [Node.js](https://nodejs.org/) (version 14 or higher)
 * [MySQL](https://www.mysql.com/)
+* [React.js](https://react.dev/)
 
 ### Backend Setup
 
