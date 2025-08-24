@@ -90,7 +90,7 @@ Follow these steps to get a local copy of the project up and running.
 
 1.  **Navigate to the frontend directory**:
     ```
-    cd ../Frontend
+    cd Frontend
     ```
 2.  **Install dependencies**:
     ```
@@ -98,5 +98,5 @@ Follow these steps to get a local copy of the project up and running.
     ```
 3.  **Start the frontend development server**:
     ```
-    npm start
+    npm run dev
     ```
