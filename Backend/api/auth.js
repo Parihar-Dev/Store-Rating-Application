@@ -1,13 +1,13 @@
 const { asyncHandler, createError, sendResponse } = require('../auth/error-handler');
 const { User, Store } = require('../database');
 const { hashPassword, comparePassword, generateToken } = require('../helper/token');
-const { validateUserRegistration } = require('../helper/validation');
+const { validateRegistration } = require('../helper/validation');
 
 // Function to register user
 exports.register = asyncHandler(async(req, res) => {
     const { name, email, password, address } = req.body;
 
-    validateUserRegistration(name, email, password, address);
+    validateRegistration(name, email, password, address);
 
     const exists = await User.findOne({where: {email} });
     if (exists) {

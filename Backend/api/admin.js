@@ -3,7 +3,7 @@ const db = require('../db');
 const { asyncHandler, createError, sendResponse } = require('../auth/error-handler');
 const { User, Store, Rating } = require('../database');
 const { hashPassword } = require('../helper/token');
-const { validateUserRegistration, validateStoreCreation } = require('../helper/validation');
+const { validateRegistration } = require('../helper/validation');
 
 // Function to get overall stats for admin dashboard
 exports.getStats = asyncHandler(async (req, res) => {
@@ -63,7 +63,7 @@ exports.getStores = asyncHandler(async(req, res) => {
 exports.createUser = asyncHandler(async(req, res) => {
     const { name, email, password, address, role } = req.body;
 
-    validateUserRegistration(name, email, password, address);
+    validateRegistration(name, email, password, address);
     const userRole = (role === 'admin' || role === 'user') ? role : 'user';
 
     const exists = await User.findOne({ where: {email} });
@@ -92,7 +92,7 @@ exports.createUser = asyncHandler(async(req, res) => {
 exports.createStore = asyncHandler(async(req, res) => {
     const { name, email, password, address } = req.body;
 
-    validateStoreCreation(name, email, password, address);
+    validateRegistration(name, email, password, address);
 
     const storeExists = await Store.findOne({ where: {email} });
     if (storeExists) {
